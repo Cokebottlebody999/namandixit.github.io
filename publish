@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+cd "`dirname "$0"`" # Directory from which the script is run
+echo "Entering directory \`$(pwd)'"
+
+# Compiling
+
+rm -rf clog
+
+CC="clang"
+CCFLAGS="--std=c11 -ferror-limit=500 -g3 -O0 -fno-strict-aliasing -fwrapv -iquote /home/naman/Code/Common"
+CFLAGS="-D_DEFAULT_SOURCE"
+WFLAGS="-Wpedantic -Weverything -Wno-gnu-zero-variadic-macro-arguments -Wno-gnu-empty-initializer -Wno-c++98-compat -Wno-documentation-unknown-command"
+LDFLAGS="-Wl,-rpath=\$ORIGIN -Wl,-z,origin -Wl,--enable-new-dtags"
+LFLAGS="-static-libgcc"
+
+${CC} ${CCFLAGS} ${CFLAGS} ${WFLAGS}                                         \
+      clog.c                                                                 \
+      -o clog                                                                \
+      ${LDFLAGS} ${LFLAGS}
+
+# Running
+
+if [ -e clog ]
+then
+    echo "Entering directory \`$(pwd)'"
+    ./clog
+fi

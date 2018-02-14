@@ -1,0 +1,260 @@
+/**************************************************
+ * Common Styling
+*/
+
+:root {
+    /* Variables */
+    --color0: #101010; /* Black */
+    --color1: #3B3B3B; /*   ^   */
+    --color2: #6C6C6C; /*   |   */
+    --color3: #9D9D9D; /*  dark */
+    --color4: #BEBEBE; /*   |   */
+    --color5: #EFEFEF; /* White */
+
+    --monospace: 'PT Mono';
+    --sans: 'Abel';
+    --serif: 'Slabo 27px';
+}
+
+a:link {
+    color: var(--color4);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--color3);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--color5);
+    text-decoration: none;
+}
+
+html {
+    background: var(--color0);
+}
+
+@media screen and (max-width:27em) { /* Mobile */
+    body {
+        --font-scale-factor: 1;
+        --padding-scale-factor: 1;
+    }
+}
+
+@media screen and (min-width:28em) and (max-width:156em) { /* Tablet/Desktop */
+    body {
+        --font-scale-factor: 1.2;
+        --padding-scale-factor: 1.5;
+    }
+}
+
+@media screen and (min-width:157em) { /* 4K */
+    body {
+        --font-scale-factor: 2;
+        --padding-scale-factor: 2;
+    }
+}
+
+/************************************************
+ * Header
+*/
+
+header {
+    font-family: var(--serif);
+    text-align: center;
+}
+
+header .site-name {
+    color: var(--color5);
+    font-size: calc(2rem * var(--font-scale-factor));
+    padding: calc(0.5% * var(--padding-scale-factor));
+}
+
+header .site-name a {
+    display: inline-block;
+}
+
+header .site-name a:link {
+    color: var(--color5);
+    text-decoration: none;
+}
+
+header .site-name a:visited {
+    color: var(--color5);
+    text-decoration: none;
+}
+
+header .site-name a:hover {
+    color: var(--color3);
+    text-decoration: none;
+}
+
+header .site-map {
+    background: var(--color1);
+    color: var(--color5);
+    font-size: calc(1.5rem * var(--font-scale-factor));
+    padding: calc(0.3% * var(--padding-scale-factor));
+}
+
+header .site-map a:link {
+    color: var(--color5);
+    text-decoration: none;
+}
+
+header .site-map a:visited {
+    color: var(--color5);
+    text-decoration: none;
+}
+
+header .site-map a:hover {
+    color: var(--color3);
+    text-decoration: none;
+}
+
+/*****************************************************
+ * Main
+*/
+
+main {
+    font-family: var(--sans);
+
+    text-align: justify;
+
+    color: var(--color5);
+
+    margin: 0 auto;
+    padding: 3% calc(5% * var(--padding-scale-factor));
+}
+
+/* Actual Content */
+
+main .content {
+    font-size: calc(1rem * var(--font-scale-factor));
+    line-height: calc(1rem * var(--font-scale-factor) * 1.2);
+}
+
+main .content h1 + h2 {
+    margin-top: 4%;
+}
+
+main .content h2 + p {
+    margin-top: 2%;
+}
+
+main .content p + h2 {
+    margin-top: 2%;
+}
+
+main .content p + p {
+    margin-top: 1%;
+}
+
+main .content .page-title {
+    font-family: var(--serif);
+    font-size: calc(3rem * var(--font-scale-factor));
+    font-weight: bold;
+    display: block;
+}
+
+main .content .heading {
+    font-family: var(--serif);
+    font-size: calc(1.5em * var(--font-scale-factor));
+    display: block;
+}
+
+main .content .bold {
+    font-weight: bold;
+}
+
+main .content .italics {
+    font-style: italic;
+}
+
+main .content .strike-through {
+    text-decoration: line-through;
+}
+
+main .content .inline-code {
+    font-family: var(--monospace);
+    white-space: pre;
+    background-color: var(--color1);
+}
+
+/* Index pages for content */
+
+main .index {
+    font-size: calc(1.2rem * var(--font-scale-factor));
+    line-height: calc(1.2rem * var(--font-scale-factor) * 1.2);
+    padding: 3% calc(20% * var(--padding-scale-factor));
+}
+
+/* Only for home page */
+
+main .home-page {
+}
+
+main .home-page p + p {
+    margin-top: 2%;
+}
+
+main .home-page .personal-introduction {
+    font-size: calc(1.2rem * var(--font-scale-factor));
+    line-height: calc(1.2rem * var(--font-scale-factor) * 1.2);
+}
+
+main .home-page .explained-site-map {
+    margin-top: 7%;
+}
+
+main .home-page .explained-site-map .title {
+    font-size: calc(1.2rem * var(--font-scale-factor));
+    line-height: calc(1.2rem * var(--font-scale-factor) * 1.2);
+}
+
+main .home-page .explained-site-map .description {
+    font-size: calc(1rem * var(--font-scale-factor));
+    line-height: calc(1rem * var(--font-scale-factor) * 1.2);
+}
+
+/* Footer */
+
+footer {
+    font-family: var(--sans);
+}
+
+/* For Creative Commons Zero license */
+
+footer .cc0-license {
+    padding: calc(1% * var(--padding-scale-factor)) calc(10% * var(--padding-scale-factor));
+}
+
+footer .cc0-license .cc0-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer .cc0-license .cc0-text {
+    font-size: calc(0.9rem * var(--font-scale-factor));
+    line-height: calc(1rem * var(--font-scale-factor));
+    text-align: center;
+
+    color: var(--color3);
+
+    font-style: italic;
+}
+
+/* For zlib License */
+
+footer .zlib-license {
+    padding: calc(1% * var(--padding-scale-factor)) calc(10% * var(--padding-scale-factor));
+    display: block;
+    font-size: calc(0.8rem * var(--font-scale-factor));
+    line-height: calc(0.8rem * var(--font-scale-factor));
+    text-align: center;
+
+    color: var(--color3);
+
+    font-style: italic;
+}
